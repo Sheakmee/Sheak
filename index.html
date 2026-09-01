@@ -3,19 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hoş Geldiniz</title>
+    <title>Sheak | Portfolio & Projects</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Selam! Web Siteme Hoş Geldin 👋</h1>
-        <p>Bu site tamamen ücretsiz bir şekilde yayınlandı.</p>
-        <button onclick="mesajGoster()">Tıkla</button>
-    </div>
+    <div class="background-glow"></div>
+
+    <nav class="navbar">
+        <div class="logo"><i class="fa-solid =>-code"></i> Sheak</div>
+        <ul class="nav-links">
+            <li><a href="#home">Ana Sayfa</a></li>
+            <li><a href="#about">Hakkımda</a></li>
+            <li><a href="#projects">Projeler</a></li>
+        </ul>
+    </nav>
+
+    <main class="hero" id="home">
+        <div class="badge">🚀 Projeler & Yazılım</div>
+        <h1>Geleceği <span class="highlight">Kodlar ve Tasarımlarla</span> Şekillendiriyorum</h1>
+        <p>Web geliştirme, donanım projeleri ve özel yazılımlarla fikirleri gerçeğe dönüştürüyorum.</p>
+        
+        <div class="cta-buttons">
+            <a href="#projects" class="btn btn-primary">Projelerimi İncele <i class="fa-solid fa-arrow-right"></i></a>
+            <button onclick="selamVer()" class="btn btn-secondary"><i class="fa-solid fa-terminal"></i> Konsol</button>
+        </div>
+
+        <div class="features-grid" id="about">
+            <div class="card">
+                <i class="fa-solid fa-microchip card-icon"></i>
+                <h3>Donanım & Otomasyon</h3>
+                <p>Mikrodenetleyiciler, sensörler ve mekanik sistemlerle akıllı çözümler üretme.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-code card-icon"></i>
+                <h3>Yazılım Geliştirme</h3>
+                <p>Modern arayüzler, Python otomasyon betikleri ve oyun modlama çalışmaları.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-cube card-icon"></i>
+                <h3>3D Tasarım</h3>
+                <p>Özel 3D modeller, oyun içi içerik tasarımı ve görsel modelleme.</p>
+            </div>
+        </div>
+    </main>
 
     <script>
-        function mesajGoster() {
-            alert('Kodlama ile yapılan ilk siten çalışıyor!');
+        function selamVer() {
+            alert('Proje ortamı aktif! Hoş geldiniz.');
         }
     </script>
 </body>
