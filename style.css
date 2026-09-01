@@ -74,15 +74,19 @@ body {
     gap: 2.5rem;
 }
 
+/* Menü Yazıları ve Büyüme (Hover) Efekti */
 .nav-links a {
     color: var(--text-muted);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s;
+    display: inline-block;
+    transition: all 0.3s ease;
 }
 
 .nav-links a:hover {
     color: var(--text-main);
+    transform: scale(1.15); /* Üzerine gelince büyütür */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Parlama efekti */
 }
 
 /* Ana Bölüm */
