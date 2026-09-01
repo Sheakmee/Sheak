@@ -1,12 +1,10 @@
 :root {
-    --bg-color: #050202;
-    --card-bg: #110505;
+    --bg-color: #000000;
+    --card-bg: #080303;
     --text-main: #ffffff;
-    --text-muted: #b3a3a3;
-    --border-color: #2b0c0c;
-    --dc-color: #5865F2;
-    --zula-color: #ff1e1e;
-    --accent-red: #ff2a2a;
+    --text-muted: #a1a1a1;
+    --border-color: #240505;
+    --accent-red: #ff1a1a;
 }
 
 * {
@@ -29,9 +27,9 @@ body {
     top: -150px;
     left: 50%;
     transform: translateX(-50%);
-    width: 800px;
-    height: 500px;
-    background: radial-gradient(ellipse, rgba(255, 30, 30, 0.15) 0%, rgba(88, 101, 242, 0.05) 50%, rgba(5, 2, 2, 0) 70%);
+    width: 900px;
+    height: 600px;
+    background: radial-gradient(ellipse, rgba(255, 0, 0, 0.22) 0%, rgba(20, 0, 0, 0.15) 45%, rgba(0, 0, 0, 0) 75%);
     z-index: -1;
     pointer-events: none;
 }
@@ -42,7 +40,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 10%;
-    background: rgba(17, 5, 5, 0.85);
+    background: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(15px);
     border-bottom: 1px solid var(--border-color);
     position: sticky;
@@ -64,7 +62,7 @@ body {
     font-size: 1.5rem;
 }
 
-/* SheakWare - Ware Kısmının Rengi (Kırmızı Ton) */
+/* SheakWare - Ware Kısmının Rengi (Kırmızı) */
 .logo-highlight {
     color: var(--accent-red); 
 }
@@ -87,7 +85,7 @@ body {
 .nav-links a:hover {
     color: var(--accent-red);
     transform: scale(1.15);
-    text-shadow: 0 0 10px rgba(255, 42, 42, 0.4);
+    text-shadow: 0 0 12px rgba(255, 26, 26, 0.6);
 }
 
 /* Ana Bölüm */
@@ -108,7 +106,7 @@ h1 {
 }
 
 .highlight {
-    background: linear-gradient(90deg, #ffffff, #ff6b6b);
+    background: linear-gradient(90deg, #ffffff, #ff4d4d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -140,12 +138,12 @@ h1 {
     position: relative;
     overflow: hidden;
     transition: transform 0.4s ease, border-color 0.4s ease;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
 }
 
 .product-card:hover {
     transform: translateY(-10px);
-    border-color: rgba(255, 30, 30, 0.3);
+    border-color: rgba(255, 26, 26, 0.4);
 }
 
 /* Kart İçi Neon Parlamalar */
@@ -158,14 +156,13 @@ h1 {
     filter: blur(60px);
     border-radius: 50%;
     z-index: 0;
-    opacity: 0.5;
+    opacity: 0.4;
 }
 
-.dc-glow { background-color: var(--dc-color); }
-.zula-glow { background-color: var(--zula-color); }
+.dc-glow { background-color: var(--accent-red); }
+.zula-glow { background-color: var(--accent-red); }
 
-.product-card:hover .dc-glow { opacity: 0.8; }
-.product-card:hover .zula-glow { opacity: 0.9; }
+.product-card:hover .card-glow { opacity: 0.8; }
 
 .icon-wrapper {
     width: 60px;
@@ -180,16 +177,10 @@ h1 {
     z-index: 1;
 }
 
-.dc-icon {
-    background: rgba(88, 101, 242, 0.1);
-    color: var(--dc-color);
-    border: 1px solid rgba(88, 101, 242, 0.3);
-}
-
-.zula-icon {
-    background: rgba(255, 30, 30, 0.1);
-    color: var(--zula-color);
-    border: 1px solid rgba(255, 30, 30, 0.3);
+.dc-icon, .zula-icon {
+    background: rgba(255, 26, 26, 0.08);
+    color: var(--accent-red);
+    border: 1px solid rgba(255, 26, 26, 0.25);
 }
 
 .product-card h3 {
@@ -223,7 +214,7 @@ h1 {
 }
 
 .features li i {
-    color: #ff1e1e;
+    color: var(--accent-red);
     font-size: 0.9rem;
 }
 
@@ -245,24 +236,15 @@ h1 {
     transition: all 0.3s ease;
 }
 
-.dc-btn {
-    background-color: var(--dc-color);
+.dc-btn, .zula-btn {
+    background-color: #1a0000;
     color: white;
+    border: 1px solid var(--accent-red);
 }
 
-.dc-btn:hover {
-    background-color: #4752c4;
-    box-shadow: 0 0 20px rgba(88, 101, 242, 0.4);
-}
-
-.zula-btn {
-    background-color: var(--zula-color);
-    color: white;
-}
-
-.zula-btn:hover {
-    background-color: #cc0000;
-    box-shadow: 0 0 20px rgba(255, 30, 30, 0.5);
+.dc-btn:hover, .zula-btn:hover {
+    background-color: var(--accent-red);
+    box-shadow: 0 0 20px rgba(255, 26, 26, 0.6);
 }
 
 @media (max-width: 900px) {
