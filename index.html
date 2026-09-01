@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>SheakWare | Profesyonel Yazılım Çözümleri</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <style>
+        /* Modal style */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.4);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto; 
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .modal-footer {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="background-glow"></div>
@@ -27,7 +57,7 @@
         <p>İhtiyacınıza özel gelişmiş Discord botları ve VIP oyun yazılımları ile sınırları ortadan kaldırın. Hızlı teslimat, 7/24 destek.</p>
         
         <div class="products-grid" id="products">
-            
+            <!-- Ürün Kartları -->
             <div class="product-card">
                 <div class="card-glow dc-glow"></div>
                 <div class="icon-wrapper dc-icon">
@@ -40,9 +70,7 @@
                     <li><i class="fa-solid fa-check"></i> Yüksek Performanslı VDS</li>
                     <li><i class="fa-solid fa-check"></i> Yönetim Paneli</li>
                 </ul>
-                <button class="buy-btn dc-btn" onclick="satinAl()">
-                    <i class="fa-solid fa-cart-shopping"></i> Satın Al
-                </button>
+                <button class="buy-btn dc-btn" onclick="satinAl()">Satın Al</button>
             </div>
 
             <div class="product-card">
@@ -50,24 +78,38 @@
                 <div class="icon-wrapper zula-icon">
                     <i class="fa-solid fa-crosshairs"></i>
                 </div>
-                <h3>Zula Yazılım Alımı</h3>
+                <h3>Zula Hile Alımı</h3>
                 <p>Undetected (ban korumalı) güncel VIP Hack. Oyunda üstünlüğü tamamen ele geçirin.</p>
                 <ul class="features">
                     <li><i class="fa-solid fa-check"></i> Aimbot & ESP (Wallhack)</li>
                     <li><i class="fa-solid fa-check"></i> Otomatik Güncelleme</li>
                     <li><i class="fa-solid fa-check"></i> HWID Spoofer Dahil</li>
                 </ul>
-                <button class="buy-btn zula-btn" onclick="satinAl()">
-                    <i class="fa-solid fa-cart-shopping"></i> Satın Al
-                </button>
+                <button class="buy-btn zula-btn" onclick="satinAl()">Satın Al</button>
             </div>
-
         </div>
     </main>
 
+    <!-- Fiyatları Gösteren Modal -->
+    <div id="fiyatModal" class="modal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <h2>Ödeme Planları</h2>
+            <p>Haftalık: <strong>250 TL</strong></p>
+            <p>Aylık: <strong>700 TL</strong></p>
+            <div class="modal-footer">
+                <button onclick="closeModal()">Kapat</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         function satinAl() {
-            window.open("https://discord.gg/6Dj4ArjyJ", "_blank");
+            var modal = document.getElementById("fiyatModal");
+            modal.style.display = "flex";
+        }
+
+        function closeModal() {
+            document.getElementById("fiyatModal").style.display = "none";
         }
     </script>
 </body>
