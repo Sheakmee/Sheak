@@ -1,49 +1,808 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+
+/* =========================================================
+   GENEL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+
+    min-height: 100vh;
+
+    color: #ffffff;
+
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            rgba(120, 0, 0, 0.35),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 0% 100%,
+            rgba(90, 0, 0, 0.20),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 100% 80%,
+            rgba(80, 0, 0, 0.18),
+            transparent 35%
+        ),
+        #020202;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   ARKA PLAN GLOW
+========================================================= */
+
+.background-glow {
+    position: fixed;
+
+    width: 650px;
+    height: 650px;
+
+    top: -350px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: rgba(180, 0, 0, 0.20);
+
+    filter: blur(130px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+    width: 100%;
+    height: 68px;
+
+    padding: 0 10%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(0, 0, 0, 0.88);
+
+    border-bottom: 1px solid rgba(255, 0, 0, 0.18);
+
+    backdrop-filter: blur(12px);
+}
+
+
+/* LOGO */
+
+.logo {
+    font-size: 24px;
+
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+}
+
+.logo-icon {
+    color: #ff1717;
+
+    margin-right: 4px;
+}
+
+.logo-highlight {
+    color: #ff2020;
+}
+
+
+/* NAV LİNKLERİ */
+
+.nav-links {
+    display: flex;
+
+    align-items: center;
+
+    gap: 38px;
+
+    list-style: none;
+}
+
+.nav-links a {
+    color: #999;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    transition: 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    width: 100%;
+
+    min-height: calc(100vh - 68px);
+
+    padding: 80px 20px 90px;
+
+    text-align: center;
+}
+
+
+/* ANA BAŞLIK */
+
+.hero h1 {
+    font-size: clamp(38px, 5vw, 56px);
+
+    line-height: 1.15;
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 22px;
+}
+
+
+/* KIRMIZI YAZI */
+
+.hero h1 .highlight {
+    color: #ff3030;
+
+    text-shadow:
+        0 0 30px rgba(255, 0, 0, 0.25);
+}
+
+
+/* AÇIKLAMA */
+
+.hero > p {
+    max-width: 720px;
+
+    margin: 0 auto 50px;
+
+    color: #999;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   ÜRÜNLER
+========================================================= */
+
 .products-grid {
+
+    /*
+        Kartların toplam genişliği.
+        Daha küçük görünmesi için 780px yaptık.
+    */
+
     width: min(780px, 100%);
+
     margin: 0 auto;
 
     display: grid;
+
+    /*
+        İKİ KART YAN YANA
+    */
+
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+
+    gap: 22px;
+
+    align-items: stretch;
 }
 
-/* Kartları küçült */
+
+/* =========================================================
+   KART
+========================================================= */
+
 .product-card {
+
+    position: relative;
+
     width: 100%;
+
+    /*
+        İki kartın eşit yüksekliği
+    */
+
     min-height: 390px;
-    padding: 28px 25px;
+
+    padding: 27px 24px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    text-align: left;
+
     border-radius: 15px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25, 0, 0, 0.96),
+            rgba(7, 2, 2, 0.98)
+        );
+
+    border: 1px solid rgba(255, 30, 30, 0.25);
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.45),
+        inset 0 0 40px rgba(255, 0, 0, 0.025);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-/* İkonları biraz küçült */
+
+/* HOVER */
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+
+/* =========================================================
+   DISCORD KARTI
+========================================================= */
+
+.discord-card {
+
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(0, 100, 255, 0.20),
+            transparent 45%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(3, 15, 32, 0.98),
+            rgba(4, 5, 10, 0.98)
+        );
+
+    border-color: rgba(40, 130, 255, 0.40);
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.50),
+        inset 0 0 40px rgba(0, 90, 255, 0.035);
+}
+
+
+.discord-card:hover {
+
+    border-color: rgba(50, 145, 255, 0.80);
+
+    box-shadow:
+        0 20px 60px rgba(0, 80, 255, 0.12),
+        inset 0 0 50px rgba(0, 100, 255, 0.06);
+}
+
+
+/* =========================================================
+   ZULA KARTI
+========================================================= */
+
+.zula-card {
+
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(255, 0, 0, 0.20),
+            transparent 45%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(30, 2, 2, 0.98),
+            rgba(7, 2, 2, 0.98)
+        );
+
+    border-color: rgba(255, 35, 35, 0.30);
+}
+
+
+.zula-card:hover {
+
+    border-color: rgba(255, 40, 40, 0.75);
+
+    box-shadow:
+        0 20px 60px rgba(255, 0, 0, 0.12),
+        inset 0 0 50px rgba(255, 0, 0, 0.05);
+}
+
+
+/* =========================================================
+   CARD GLOW
+========================================================= */
+
+.card-glow {
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    top: -160px;
+    right: -100px;
+
+    border-radius: 50%;
+
+    filter: blur(70px);
+
+    pointer-events: none;
+}
+
+
+/* DISCORD GLOW */
+
+.dc-glow {
+    background: rgba(0, 100, 255, 0.25);
+}
+
+
+/* ZULA GLOW */
+
+.zula-glow {
+    background: rgba(255, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
 .icon-wrapper {
+
+    position: relative;
+
+    z-index: 2;
+
     width: 52px;
     height: 52px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    margin-bottom: 20px;
+
     font-size: 22px;
-    margin-bottom: 20px;
 }
 
-/* Başlık */
+
+/* DISCORD ICON */
+
+.dc-icon {
+
+    color: #4da3ff;
+
+    background: rgba(0, 100, 255, 0.09);
+
+    border: 1px solid rgba(50, 140, 255, 0.45);
+
+    box-shadow:
+        0 0 25px rgba(0, 100, 255, 0.12);
+}
+
+
+/* ZULA ICON */
+
+.zula-icon {
+
+    color: #ff2727;
+
+    background: rgba(255, 0, 0, 0.07);
+
+    border: 1px solid rgba(255, 30, 30, 0.40);
+
+    box-shadow:
+        0 0 25px rgba(255, 0, 0, 0.10);
+}
+
+
+/* =========================================================
+   ÜRÜN BAŞLIĞI
+========================================================= */
+
 .product-card h3 {
+
+    position: relative;
+
+    z-index: 2;
+
     font-size: 23px;
+
+    font-weight: 700;
+
     margin-bottom: 10px;
+
+    color: #ffffff;
 }
 
-/* Açıklama */
+
+/* =========================================================
+   ÜRÜN AÇIKLAMASI
+========================================================= */
+
 .product-card > p {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: #999;
+
     font-size: 13px;
+
     line-height: 1.7;
+
     margin-bottom: 20px;
 }
 
-/* Özellikler */
-.features li {
-    font-size: 13px;
-    margin-bottom: 10px;
+
+/* =========================================================
+   ÖZELLİKLER
+========================================================= */
+
+.features {
+
+    position: relative;
+
+    z-index: 2;
+
+    list-style: none;
+
+    width: 100%;
+
+    margin-bottom: 22px;
 }
 
-/* Buton */
+
+.features li {
+
+    color: #c3c3c3;
+
+    font-size: 13px;
+
+    margin-bottom: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+}
+
+
+/* GENEL CHECK */
+
+.features li i {
+
+    font-size: 11px;
+
+    color: #ff2525;
+}
+
+
+/* DISCORD CHECK */
+
+.discord-card .features li i {
+
+    color: #3295ff;
+}
+
+
+/* =========================================================
+   SATIN AL BUTONU
+========================================================= */
+
 .buy-btn {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
     height: 46px;
+
+    margin-top: auto;
+
+    border-radius: 8px;
+
+    background: transparent;
+
+    font-family: inherit;
+
     font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* =========================================================
+   DISCORD BUTONU
+========================================================= */
+
+.dc-btn {
+
+    color: #4da3ff;
+
+    border: 1px solid #248cff;
+}
+
+
+.dc-btn:hover {
+
+    color: #ffffff;
+
+    background: #1678df;
+
+    box-shadow:
+        0 0 25px rgba(0, 110, 255, 0.35);
+}
+
+
+/* =========================================================
+   ZULA BUTONU
+========================================================= */
+
+.zula-btn {
+
+    color: #ff3030;
+
+    border: 1px solid #ff2525;
+}
+
+
+.zula-btn:hover {
+
+    color: #ffffff;
+
+    background: #d91414;
+
+    box-shadow:
+        0 0 25px rgba(255, 0, 0, 0.35);
+}
+
+
+/* BUTON İKONU */
+
+.buy-btn i {
+
+    margin-right: 7px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 750px) {
+
+    .navbar {
+
+        padding: 0 25px;
+    }
+
+    .products-grid {
+
+        width: min(650px, 100%);
+
+        gap: 18px;
+    }
+
+    .product-card {
+
+        padding: 24px 20px;
+
+        min-height: 390px;
+    }
+
+    .product-card h3 {
+
+        font-size: 20px;
+    }
+
+    .product-card > p {
+
+        font-size: 12px;
+    }
+
+    .features li {
+
+        font-size: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   TELEFON
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+
+        height: auto;
+
+        min-height: 68px;
+
+        padding: 15px 20px;
+
+        gap: 15px;
+    }
+
+    .logo {
+
+        font-size: 20px;
+    }
+
+    .nav-links {
+
+        gap: 13px;
+    }
+
+    .nav-links a {
+
+        font-size: 11px;
+    }
+
+
+    .hero {
+
+        padding:
+            60px 15px 70px;
+    }
+
+
+    .hero h1 {
+
+        font-size: 34px;
+
+        letter-spacing: -1px;
+    }
+
+
+    .hero > p {
+
+        font-size: 13px;
+
+        margin-bottom: 38px;
+    }
+
+
+    /*
+        Telefonda kartları tekrar
+        alt alta getiriyoruz.
+    */
+
+    .products-grid {
+
+        grid-template-columns: 1fr;
+
+        width: 100%;
+
+        gap: 20px;
+    }
+
+
+    .product-card {
+
+        min-height: 390px;
+
+        padding: 26px 22px;
+    }
+
+
+    .product-card h3 {
+
+        font-size: 22px;
+    }
+
+
+    .product-card > p {
+
+        font-size: 13px;
+    }
+
+
+    .features li {
+
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================================
+   ÇOK KÜÇÜK TELEFON
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .navbar {
+
+        padding: 14px;
+    }
+
+    .logo {
+
+        font-size: 18px;
+    }
+
+    .nav-links {
+
+        gap: 8px;
+    }
+
+    .nav-links a {
+
+        font-size: 10px;
+    }
+
+    .hero h1 {
+
+        font-size: 30px;
+    }
+
+    .product-card {
+
+        min-height: 390px;
+
+        padding: 23px 19px;
+    }
+
 }
