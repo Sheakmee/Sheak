@@ -20,7 +20,8 @@
         <ul class="nav-links">
             <li><a href="#home">Ana Sayfa</a></li>
             <li><a href="#products">Ürünler</a></li>
-            <li><a href="#contact">İletişim</a></li>
+            <!-- İletişim butonu Discord sunucuna yönlendirir ve yeni sekmede açılır -->
+            <li><a href="https://discord.gg/kendi-linkin" target="_blank">İletişim</a></li>
         </ul>
     </nav>
 
@@ -74,6 +75,8 @@
     <script>
         function satinAl(urun) {
             alert(urun + ' işlemi için Discord sunucumuza yönlendiriliyorsunuz!');
+            // Buraya tıklayınca da direkt Discord'a atsın istersen şu kodu kullanabilirsin:
+            // window.open("https://discord.gg/6Dj4ArjyJ", "_blank");
         }
     </script>
 </body>
