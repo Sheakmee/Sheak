@@ -20,8 +20,8 @@
         <ul class="nav-links">
             <li><a href="#home">Ana Sayfa</a></li>
             <li><a href="#products">Ürünler</a></li>
-            <!-- İletişim butonu Discord sunucuna yönlendirir ve yeni sekmede açılır -->
-            <li><a href="https://https://discord.gg/6Dj4ArjyJ" target="_blank">İletişim</a></li>
+            <!-- İletişim butonu Discord sunucuna yönlendirir -->
+            <li><a href="https://discord.gg/6Dj4ArjyJ" target="_blank">İletişim</a></li>
         </ul>
     </nav>
 
@@ -46,7 +46,7 @@
                     <li><i class="fa-solid fa-check"></i> Yüksek Performanslı VDS</li>
                     <li><i class="fa-solid fa-check"></i> Yönetim Paneli</li>
                 </ul>
-                <button class="buy-btn dc-btn" onclick="satinAl('Discord Bot')">
+                <button class="buy-btn dc-btn" onclick="satinAl()">
                     <i class="fa-solid fa-cart-shopping"></i> Satın Al
                 </button>
             </div>
@@ -64,7 +64,7 @@
                     <li><i class="fa-solid fa-check"></i> Otomatik Güncelleme</li>
                     <li><i class="fa-solid fa-check"></i> HWID Spoofer Dahil</li>
                 </ul>
-                <button class="buy-btn zula-btn" onclick="satinAl('Zula Hile')">
+                <button class="buy-btn zula-btn" onclick="satinAl()">
                     <i class="fa-solid fa-cart-shopping"></i> Satın Al
                 </button>
             </div>
@@ -73,10 +73,9 @@
     </main>
 
     <script>
-        function satinAl(urun) {
-            alert(urun + ' işlemi için Discord sunucumuza yönlendiriliyorsunuz!');
-            // Buraya tıklayınca da direkt Discord'a atsın istersen şu kodu kullanabilirsin:
-            // window.open("https://discord.gg/6Dj4ArjyJ", "_blank");
+        function satinAl() {
+            // Satın al butonlarına tıklandığında da doğrudan Discord'a yönlendirecek
+            window.open("https://discord.gg/6Dj4ArjyJ", "_blank");
         }
     </script>
 </body>
