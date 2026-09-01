@@ -3,54 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sheak | Portfolio & Projects</title>
+    <title>SheakMee | Profesyonel Yazılım Çözümleri</title>
     <link rel="stylesheet" href="style.css">
+    <!-- İkonlar için FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="background-glow"></div>
 
+    <!-- Üst Menü -->
     <nav class="navbar">
-        <div class="logo"><i class="fa-solid =>-code"></i> Sheak</div>
+        <div class="logo">
+            <span class="logo-icon"><i class="fa-solid fa-bolt"></i></span> 
+            Sheak<span class="logo-highlight">Mee</span>
+        </div>
         <ul class="nav-links">
             <li><a href="#home">Ana Sayfa</a></li>
-            <li><a href="#about">Hakkımda</a></li>
-            <li><a href="#projects">Projeler</a></li>
+            <li><a href="#products">Ürünler</a></li>
+            <li><a href="#contact">İletişim</a></li>
         </ul>
     </nav>
 
+    <!-- Ana İçerik -->
     <main class="hero" id="home">
-        <div class="badge">🚀 Projeler & Yazılım</div>
-        <h1>Geleceği <span class="highlight">Kodlar ve Tasarımlarla</span> Şekillendiriyorum</h1>
-        <p>Web geliştirme, donanım projeleri ve özel yazılımlarla fikirleri gerçeğe dönüştürüyorum.</p>
+        <h1>Premium <span class="highlight">Yazılım & Bot</span> Merkezi</h1>
+        <p>İhtiyacınıza özel gelişmiş Discord botları ve VIP oyun yazılımları ile sınırları ortadan kaldırın. Hızlı teslimat, 7/24 destek.</p>
         
-        <div class="cta-buttons">
-            <a href="#projects" class="btn btn-primary">Projelerimi İncele <i class="fa-solid fa-arrow-right"></i></a>
-            <button onclick="selamVer()" class="btn btn-secondary"><i class="fa-solid fa-terminal"></i> Konsol</button>
-        </div>
+        <!-- Ortadaki Satış Kartları -->
+        <div class="products-grid" id="products">
+            
+            <!-- 1. Kart: Discord Bot -->
+            <div class="product-card">
+                <div class="card-glow dc-glow"></div>
+                <div class="icon-wrapper dc-icon">
+                    <i class="fa-brands fa-discord"></i>
+                </div>
+                <h3>Discord Bot Alımı</h3>
+                <p>Sunucunuza özel kodlanmış, 7/24 kesintisiz aktif moderasyon, kayıt, ekonomi veya eğlence botları.</p>
+                <ul class="features">
+                    <li><i class="fa-solid fa-check"></i> Tamamen Özel Komutlar</li>
+                    <li><i class="fa-solid fa-check"></i> Yüksek Performanslı VDS</li>
+                    <li><i class="fa-solid fa-check"></i> Yönetim Paneli</li>
+                </ul>
+                <button class="buy-btn dc-btn" onclick="satinAl('Discord Bot')">
+                    <i class="fa-solid fa-cart-shopping"></i> Satın Al
+                </button>
+            </div>
 
-        <div class="features-grid" id="about">
-            <div class="card">
-                <i class="fa-solid fa-microchip card-icon"></i>
-                <h3>Donanım & Otomasyon</h3>
-                <p>Mikrodenetleyiciler, sensörler ve mekanik sistemlerle akıllı çözümler üretme.</p>
+            <!-- 2. Kart: Zula Hile -->
+            <div class="product-card">
+                <div class="card-glow zula-glow"></div>
+                <div class="icon-wrapper zula-icon">
+                    <i class="fa-solid fa-crosshairs"></i>
+                </div>
+                <h3>Zula Hile Alımı</h3>
+                <p>Undetected (ban korumalı) güncel VIP Hack. Oyunda üstünlüğü tamamen ele geçirin.</p>
+                <ul class="features">
+                    <li><i class="fa-solid fa-check"></i> Aimbot & ESP (Wallhack)</li>
+                    <li><i class="fa-solid fa-check"></i> Otomatik Güncelleme</li>
+                    <li><i class="fa-solid fa-check"></i> HWID Spoofer Dahil</li>
+                </ul>
+                <button class="buy-btn zula-btn" onclick="satinAl('Zula Hile')">
+                    <i class="fa-solid fa-cart-shopping"></i> Satın Al
+                </button>
             </div>
-            <div class="card">
-                <i class="fa-solid fa-code card-icon"></i>
-                <h3>Yazılım Geliştirme</h3>
-                <p>Modern arayüzler, Python otomasyon betikleri ve oyun modlama çalışmaları.</p>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-cube card-icon"></i>
-                <h3>3D Tasarım</h3>
-                <p>Özel 3D modeller, oyun içi içerik tasarımı ve görsel modelleme.</p>
-            </div>
+
         </div>
     </main>
 
     <script>
-        function selamVer() {
-            alert('Proje ortamı aktif! Hoş geldiniz.');
+        function satinAl(urun) {
+            alert(urun + ' işlemi için Discord sunucumuza yönlendiriliyorsunuz! (Buraya kendi DC linkini ekleyebiliriz)');
         }
     </script>
 </body>
