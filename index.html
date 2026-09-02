@@ -1,45 +1,17 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SheakWare | Profesyonel Yazılım Çözümleri</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    <style>
-        /* Modal style */
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 1000; 
-            left: 0;
-            top: 0;
-            width: 100%; 
-            height: 100%; 
-            overflow: auto; 
-            background-color: rgba(0,0,0,0.4);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: #fff;
-            margin: 15% auto; 
-            padding: 20px;
-            border-radius: 8px;
-            width: 300px;
-            text-align: center;
-        }
-
-        .modal-footer {
-            text-align: center;
-            margin-top: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <!-- İkonlar için FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="background-glow"></div>
 
+    <!-- Üst Menü -->
     <nav class="navbar">
         <div class="logo">
             <span class="logo-icon"><i class="fa-solid fa-bolt"></i></span> 
@@ -52,12 +24,15 @@
         </ul>
     </nav>
 
+    <!-- Ana İçerik -->
     <main class="hero" id="home">
         <h1>SheakWare'a <span class="highlight">Hoş Geldiniz</span></h1>
         <p>İhtiyacınıza özel gelişmiş Discord botları ve VIP oyun yazılımları ile sınırları ortadan kaldırın. Hızlı teslimat, 7/24 destek.</p>
         
+        <!-- Ortadaki Satış Kartları -->
         <div class="products-grid" id="products">
-            <!-- Ürün Kartları -->
+            
+            <!-- 1. Kart: Discord Bot -->
             <div class="product-card">
                 <div class="card-glow dc-glow"></div>
                 <div class="icon-wrapper dc-icon">
@@ -70,9 +45,12 @@
                     <li><i class="fa-solid fa-check"></i> Yüksek Performanslı VDS</li>
                     <li><i class="fa-solid fa-check"></i> Yönetim Paneli</li>
                 </ul>
-                <button class="buy-btn dc-btn" onclick="satinAl()">Satın Al</button>
+                <button class="buy-btn dc-btn" onclick="satinAl('Discord Bot')">
+                    <i class="fa-solid fa-cart-shopping"></i> Satın Al
+                </button>
             </div>
 
+            <!-- 2. Kart: Zula Hile -->
             <div class="product-card">
                 <div class="card-glow zula-glow"></div>
                 <div class="icon-wrapper zula-icon">
@@ -85,31 +63,28 @@
                     <li><i class="fa-solid fa-check"></i> Otomatik Güncelleme</li>
                     <li><i class="fa-solid fa-check"></i> HWID Spoofer Dahil</li>
                 </ul>
-                <button class="buy-btn zula-btn" onclick="satinAl()">Satın Al</button>
+                <button class="buy-btn zula-btn" onclick="satinAl('Zula Hile')">
+                    <i class="fa-solid fa-cart-shopping"></i> Satın Al
+                </button>
             </div>
+
         </div>
     </main>
 
-    <!-- Fiyatları Gösteren Modal -->
-    <div id="fiyatModal" class="modal" onclick="closeModal()">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <h2>Ödeme Planları</h2>
-            <p>Haftalık: <strong>250 TL</strong></p>
-            <p>Aylık: <strong>700 TL</strong></p>
-            <div class="modal-footer">
-                <button onclick="closeModal()">Kapat</button>
-            </div>
-        </div>
-    </div>
-
     <script>
-        function satinAl() {
-            var modal = document.getElementById("fiyatModal");
-            modal.style.display = "flex";
-        }
-
-        function closeModal() {
-            document.getElementById("fiyatModal").style.display = "none";
+        function satinAl(urunAdi) {
+            // Ekrana fiyat bilgilendirme mesajı çıkarıyoruz
+            var onay = confirm(
+                urunAdi + " Fiyatlandırması:\n\n" +
+                "► Haftalık: 250 TL\n" +
+                "► Aylık: 900 TL\n\n" +
+                "Satın alım işlemi için Discord sunucumuza yönlendirilmek istiyor musunuz?"
+            );
+            
+            // Eğer kullanıcı "Tamam" butonuna basarsa Discord'a gider
+            if (onay) {
+                window.open("https://discord.gg/6Dj4ArjyJ", "_blank");
+            }
         }
     </script>
 </body>
