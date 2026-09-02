@@ -1,7 +1,7 @@
 :root {
     --bg-color: #0c0000;
-    --card-bg-red: #140202; /* Zula için koyu kırmızı/siyah */
-    --card-bg-blue: #060817; /* Discord için çok koyu gece mavisi */
+    --card-bg-red: #140202; 
+    --card-bg-blue: #060817; 
     --text-main: #ffffff;
     --text-muted: #c9b3b3;
     --border-color: #380808;
@@ -26,14 +26,35 @@ body {
     min-height: 100vh;
 }
 
-.background-glow {
+/* ------------------------------------------
+   ANA SAYFAYA ÖZEL RENKLER (HOME THEME) 
+---------------------------------------------*/
+body.home-theme {
+    background-color: #050510;
+    background-image: 
+        radial-gradient(circle at top left, rgba(0, 229, 255, 0.15) 0%, #050510 40%),
+        radial-gradient(circle at bottom right, rgba(255, 0, 127, 0.15) 0%, #050510 60%);
+}
+body.home-theme .logo-highlight { color: #00e5ff; }
+body.home-theme .logo-icon { color: #00e5ff; }
+body.home-theme .nav-links a.active-link { color: #00e5ff; }
+body.home-theme .nav-links a:hover {
+    color: #00e5ff;
+    text-shadow: 0 0 15px rgba(0, 229, 255, 0.6);
+}
+body.home-theme .highlight {
+    background: linear-gradient(90deg, #00e5ff, #ff007f, #b700ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.home-background-glow {
     position: absolute;
-    top: -100px;
+    top: -150px;
     left: 50%;
     transform: translateX(-50%);
-    width: 900px;
-    height: 600px;
-    background: radial-gradient(ellipse, rgba(255, 30, 30, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+    width: 1000px;
+    height: 700px;
+    background: radial-gradient(ellipse, rgba(0, 229, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
     z-index: -1;
     pointer-events: none;
 }
@@ -44,13 +65,14 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 10%;
-    background: rgba(12, 0, 0, 0.7);
+    background: rgba(12, 0, 0, 0.6);
     backdrop-filter: blur(15px);
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     position: sticky;
     top: 0;
     z-index: 100;
 }
+body.home-theme .navbar { background: rgba(5, 5, 16, 0.7); }
 
 .logo {
     font-size: 1.8rem;
@@ -64,12 +86,7 @@ body {
 .logo-icon { color: var(--accent-red); font-size: 1.5rem; }
 .logo-highlight { color: var(--accent-red); }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2.5rem;
-}
-
+.nav-links { display: flex; list-style: none; gap: 2.5rem; }
 .nav-links a {
     color: var(--text-muted);
     text-decoration: none;
@@ -77,29 +94,24 @@ body {
     display: inline-block;
     transition: all 0.3s ease;
 }
-
 .nav-links a:hover {
     color: var(--accent-red);
     transform: scale(1.15);
     text-shadow: 0 0 15px rgba(255, 51, 51, 0.6);
 }
 
-/* Hero / Ortak İçerik Alanı */
+/* Hero Alanı */
 .hero {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 6rem 1rem 4rem;
+    padding: 6rem 1rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-}
+h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1.5rem; }
 
 .highlight {
     background: linear-gradient(90deg, #ffffff, #ff6666);
@@ -111,221 +123,146 @@ h1 {
     color: var(--text-muted);
     font-size: 1.2rem;
     max-width: 700px;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     line-height: 1.6;
 }
 
-/* Ürün Kartları Genel */
-.products-grid {
+/* ------------------------------------------
+   YENİ EKLENEN BİLGİ BÖLÜMLERİ (ANA SAYFA)
+---------------------------------------------*/
+.info-section {
+    padding: 3rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.info-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.features-grid {
     display: flex;
+    gap: 2rem;
     justify-content: center;
-    gap: 3rem;
     flex-wrap: wrap;
-    width: 100%;
 }
 
-.product-card {
+.feature-box {
+    background: rgba(20, 20, 35, 0.5);
+    border: 1px solid rgba(0, 229, 255, 0.15);
+    padding: 2.5rem 1.5rem;
     border-radius: 16px;
-    padding: 2.5rem 2rem;
-    width: 380px;
-    text-align: left;
-    position: relative;
-    overflow: hidden;
+    width: 320px;
+    backdrop-filter: blur(10px);
     transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-    border: 1px solid;
 }
 
+.feature-box:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 0, 127, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 229, 255, 0.1);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: #00e5ff;
+    margin-bottom: 1.5rem;
+}
+
+.feature-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.feature-box p {
+    color: #a3a3b5;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background: linear-gradient(90deg, rgba(0,229,255,0.05), rgba(255,0,127,0.05));
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    margin-top: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stat-item { margin: 1rem; }
+.stat-item h3 {
+    font-size: 3.5rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
+}
+.stat-item p {
+    color: #a3a3b5;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #666;
+}
+
+/* ------------------------------------------
+   ÜRÜNLER SAYFASI (ESKİ KODLARIN AYNI KALDI)
+---------------------------------------------*/
+.products-grid { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; width: 100%; }
+.product-card {
+    border-radius: 16px; padding: 2.5rem 2rem; width: 380px; text-align: left;
+    position: relative; overflow: hidden;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6); border: 1px solid;
+}
 .product-card:hover { transform: translateY(-10px); }
 
-/* --- DİSCORD BOT KARTI (MAVİ ARKA PLAN TEMA) --- */
-.dc-card {
-    background-color: var(--card-bg-blue);
-    border-color: rgba(88, 101, 242, 0.3);
-}
-.dc-card:hover { 
-    border-color: rgba(88, 101, 242, 0.6); 
-    box-shadow: 0 15px 35px rgba(88, 101, 242, 0.15);
-}
+.dc-card { background-color: var(--card-bg-blue); border-color: rgba(88, 101, 242, 0.3); }
+.dc-card:hover { border-color: rgba(88, 101, 242, 0.6); box-shadow: 0 15px 35px rgba(88, 101, 242, 0.15); }
 .dc-glow { background-color: var(--accent-blue); }
-.dc-icon {
-    background: rgba(88, 101, 242, 0.1);
-    color: var(--accent-blue);
-    border: 1px solid rgba(88, 101, 242, 0.3);
-}
-.dc-btn {
-    background-color: #0b0d1a;
-    color: white;
-    border: 1px solid var(--accent-blue);
-}
-.dc-btn:hover {
-    background-color: var(--accent-blue);
-    box-shadow: 0 0 20px rgba(88, 101, 242, 0.5);
-}
+.dc-icon { background: rgba(88, 101, 242, 0.1); color: var(--accent-blue); border: 1px solid rgba(88, 101, 242, 0.3); }
+.dc-btn { background-color: #0b0d1a; color: white; border: 1px solid var(--accent-blue); }
+.dc-btn:hover { background-color: var(--accent-blue); box-shadow: 0 0 20px rgba(88, 101, 242, 0.5); }
 
-/* --- ZULA HİLE KARTI (KIRMIZI ARKA PLAN TEMA) --- */
-.zula-card {
-    background-color: var(--card-bg-red);
-    border-color: var(--border-color);
-}
-.zula-card:hover { 
-    border-color: rgba(255, 51, 51, 0.5); 
-    box-shadow: 0 15px 35px rgba(255, 51, 51, 0.15);
-}
+.zula-card { background-color: var(--card-bg-red); border-color: var(--border-color); }
+.zula-card:hover { border-color: rgba(255, 51, 51, 0.5); box-shadow: 0 15px 35px rgba(255, 51, 51, 0.15); }
 .zula-glow { background-color: var(--accent-red); }
-.zula-icon {
-    background: rgba(255, 51, 51, 0.1);
-    color: var(--accent-red);
-    border: 1px solid rgba(255, 51, 51, 0.3);
-}
-.zula-btn {
-    background-color: #1a0000;
-    color: white;
-    border: 1px solid var(--accent-red);
-}
-.zula-btn:hover {
-    background-color: var(--accent-red);
-    box-shadow: 0 0 20px rgba(255, 51, 51, 0.5);
-}
+.zula-icon { background: rgba(255, 51, 51, 0.1); color: var(--accent-red); border: 1px solid rgba(255, 51, 51, 0.3); }
+.zula-btn { background-color: #1a0000; color: white; border: 1px solid var(--accent-red); }
+.zula-btn:hover { background-color: var(--accent-red); box-shadow: 0 0 20px rgba(255, 51, 51, 0.5); }
 
-/* Ortak Kart Ayarları */
-.card-glow {
-    position: absolute;
-    top: -50px;
-    right: -50px;
-    width: 150px;
-    height: 150px;
-    filter: blur(60px);
-    border-radius: 50%;
-    z-index: 0;
-    opacity: 0.4;
-    transition: opacity 0.4s ease;
-}
+.card-glow { position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; filter: blur(60px); border-radius: 50%; z-index: 0; opacity: 0.4; transition: opacity 0.4s ease; }
 .product-card:hover .card-glow { opacity: 0.8; }
-
-.icon-wrapper {
-    width: 60px;
-    height: 60px;
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 1;
-}
-
+.icon-wrapper { width: 60px; height: 60px; border-radius: 12px; display: flex; justify-content: center; align-items: center; font-size: 2rem; margin-bottom: 1.5rem; position: relative; z-index: 1; }
 .product-card h3 { font-size: 1.8rem; margin-bottom: 1rem; position: relative; z-index: 1; }
 .product-card p { color: var(--text-muted); margin-bottom: 2rem; font-size: 1rem; position: relative; z-index: 1; }
-
 .features { list-style: none; margin-bottom: 2.5rem; position: relative; z-index: 1; }
 .features li { margin-bottom: 0.8rem; color: #dfdfdf; display: flex; align-items: center; gap: 10px; }
+.buy-btn { width: 100%; padding: 14px; border-radius: 8px; font-size: 1.1rem; font-weight: 700; cursor: pointer; position: relative; z-index: 1; display: flex; justify-content: center; align-items: center; gap: 10px; transition: all 0.3s ease; text-decoration: none; }
 
-.buy-btn {
-    width: 100%;
-    padding: 14px;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
-
-/* Fiyatlandırma Alanı (Sadece ürünler sayfasında çıkacak) */
-.pricing-container {
-    width: 100%;
-    max-width: 810px;
-    margin: 4rem auto 0;
-    background: rgba(20, 2, 2, 0.6);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 3rem 4rem;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
-    
-    display: none;
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-.pricing-container.visible {
-    display: block;
-    animation: slideUpFade 0.6s ease forwards;
-}
-
-@keyframes slideUpFade {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.pricing-content { text-align: left; }
-.pricing-content h2 {
-    font-size: 2.2rem;
-    font-weight: 800;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 1rem;
-}
-
+.pricing-container { width: 100%; max-width: 810px; margin: 4rem auto 0; background: rgba(20, 2, 2, 0.6); border: 1px solid var(--border-color); border-radius: 16px; padding: 3rem 4rem; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7); backdrop-filter: blur(10px); display: none; opacity: 0; transform: translateY(30px); }
+.pricing-container.visible { display: block; animation: slideUpFade 0.6s ease forwards; }
+@keyframes slideUpFade { to { opacity: 1; transform: translateY(0); } }
+.pricing-content h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 2rem; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 1rem; }
 .pricing-details { margin-bottom: 2rem; }
-.price-line {
-    display: flex;
-    align-items: center;
-    font-size: 1.6rem;
-    font-family: 'Georgia', serif;
-    font-style: italic;
-    color: #e6e6e6;
-    margin-bottom: 1.2rem;
-}
-
-.dots {
-    flex-grow: 1;
-    border-bottom: 2px dotted rgba(255, 255, 255, 0.2);
-    margin: 0 15px;
-    position: relative;
-    top: -5px;
-}
-
-.price-tag {
-    font-family: 'Segoe UI', sans-serif;
-    font-style: normal;
-    font-weight: 800;
-    color: #ffffff;
-    font-size: 1.8rem;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
-
-.pricing-desc {
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    line-height: 1.6;
-    max-width: 600px;
-}
-
-.final-buy-btn {
-    display: inline-flex;
-    width: auto;
-    padding: 15px 35px;
-    background-color: var(--accent-blue);
-    color: white;
-    border: none;
-    text-decoration: none;
-    border-radius: 8px;
-}
-
-.final-buy-btn:hover {
-    background-color: #4752C4;
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(88, 101, 242, 0.6);
-}
+.price-line { display: flex; align-items: center; font-size: 1.6rem; font-family: 'Georgia', serif; font-style: italic; color: #e6e6e6; margin-bottom: 1.2rem; }
+.dots { flex-grow: 1; border-bottom: 2px dotted rgba(255, 255, 255, 0.2); margin: 0 15px; position: relative; top: -5px; }
+.price-tag { font-family: 'Segoe UI', sans-serif; font-style: normal; font-weight: 800; color: #ffffff; font-size: 1.8rem; text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
+.pricing-desc { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem; line-height: 1.6; max-width: 600px; }
+.final-buy-btn { display: inline-flex; width: auto; padding: 15px 35px; background-color: var(--accent-blue); color: white; border: none; text-decoration: none; border-radius: 8px; }
+.final-buy-btn:hover { background-color: #4752C4; transform: scale(1.05); box-shadow: 0 0 20px rgba(88, 101, 242, 0.6); }
 
 @media (max-width: 900px) {
     h1 { font-size: 2.5rem; }
