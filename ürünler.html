@@ -53,7 +53,7 @@
                 <div class="icon-wrapper zula-icon">
                     <i class="fa-solid fa-crosshairs"></i>
                 </div>
-                <h3>Zula Yazılım Alımı</h3>
+                <h3>Zula Hile Alımı</h3>
                 <p>Undetected (ban korumalı) güncel VIP Hack. Oyunda üstünlüğü tamamen ele geçirin.</p>
                 <ul class="features">
                     <li><i class="fa-solid fa-check"></i> Aimbot & ESP (Wallhack)</li>
@@ -67,19 +67,46 @@
 
         </div>
 
-        <!-- Tıklayınca Açılan Fiyatlandırma Alanı -->
+        <!-- Tıklayınca Açılan Profesyonel Ödeme / Fiyatlandırma Alanı -->
         <div id="pricing-area" class="pricing-container">
             <div class="pricing-content">
                 <h2 id="pricing-title">Ürün Fiyatlandırması</h2>
-                <div class="pricing-details">
-                    <p class="price-line">Haftalık Paket <span class="dots"></span> <span class="price-tag">250 TL</span></p>
-                    <p class="price-line">Aylık Paket <span class="dots"></span> <span class="price-tag">900 TL</span></p>
-                </div>
-                <p class="pricing-desc">Satın alım işlemini tamamlamak ve anında teslim almak için Discord sunucumuza katılıp destek talebi oluşturabilirsiniz.</p>
                 
-                <a href="https://discord.gg/6Dj4ArjyJ" target="_blank" class="buy-btn final-buy-btn">
-                    <i class="fa-brands fa-discord"></i> Discord'dan Satın Al
-                </a>
+                <!-- Profesyonel Fiyat Satırları (Sıkı Mesafe) -->
+                <div class="pricing-details">
+                    <div class="price-row">
+                        <span class="package-name">Haftalık Paket</span>
+                        <span class="dots"></span>
+                        <span class="price-tag">250 TL</span>
+                    </div>
+                    <div class="price-row">
+                        <span class="package-name">Aylık Paket</span>
+                        <span class="dots"></span>
+                        <span class="price-tag">900 TL</span>
+                    </div>
+                </div>
+
+                <!-- Kişi Bilgileri (İsim Soyisim Girişi) -->
+                <div class="checkout-form">
+                    <label for="buyer-name">Ad Soyad</label>
+                    <input type="text" id="buyer-name" placeholder="Adınızı ve Soyadınızı giriniz..." autocomplete="name">
+                </div>
+
+                <!-- Ödeme Seçenekleri Altta -->
+                <div class="payment-options">
+                    <p class="payment-title"><i class="fa-solid fa-wallet"></i> Ödeme Seçenekleri</p>
+                    <div class="payment-methods">
+                        <div class="payment-badge"><i class="fa-solid fa-building-columns"></i> IBAN / Havale</div>
+                        <div class="payment-badge"><i class="fa-solid fa-wallet"></i> Papara</div>
+                        <div class="payment-badge"><i class="fa-solid fa-credit-card"></i> Kredi Kartı</div>
+                    </div>
+                </div>
+
+                <p class="pricing-desc">Siparişi tamamlamak ve ödeme bildiriminde bulunmak için aşağıdaki butona tıklayarak Discord destek talebi açabilirsiniz.</p>
+                
+                <button class="buy-btn final-buy-btn" onclick="satinAlTikla()">
+                    <i class="fa-solid fa-check-circle"></i> Satın Al
+                </button>
             </div>
         </div>
 
@@ -96,6 +123,16 @@
             setTimeout(() => {
                 pricingArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }, 100);
+        }
+
+        function satinAlTikla() {
+            const isim = document.getElementById('buyer-name').value.trim();
+            if (!isim) {
+                alert('Lütfen devam etmeden önce adınızı ve soyadınızı giriniz!');
+                document.getElementById('buyer-name').focus();
+                return;
+            }
+            window.open('https://discord.gg/6Dj4ArjyJ', '_blank');
         }
     </script>
 </body>
