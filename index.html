@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SheakWare | Profesyonel Yazılım Çözümleri</title>
+    <title>SheakWare | Ana Sayfa</title>
     <link rel="stylesheet" href="style.css">
-    <!-- İkonlar için FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -18,94 +17,20 @@
             Sheak<span class="logo-highlight">Ware</span>
         </div>
         <ul class="nav-links">
-            <li><a href="#home">Ana Sayfa</a></li>
-            <li><a href="#products">Ürünler</a></li>
+            <li><a href="index.html" style="color: var(--accent-red);">Ana Sayfa</a></li>
+            <li><a href="urunler.html">Ürünler</a></li>
             <li><a href="https://discord.gg/6Dj4ArjyJ" target="_blank">İletişim</a></li>
         </ul>
     </nav>
 
-    <!-- Ana İçerik -->
-    <main class="hero" id="home">
+    <!-- Ana Sayfa Karşılama Alanı -->
+    <main class="hero">
         <h1>SheakWare'a <span class="highlight">Hoş Geldiniz</span></h1>
-        <p>İhtiyacınıza özel gelişmiş Discord botları ve VIP oyun yazılımları ile sınırları ortadan kaldırın. Hızlı teslimat, 7/24 destek.</p>
+        <p>Dijital dünyadaki gücünüzü artırın. İhtiyacınıza özel gelişmiş Discord botları ve yenilmez VIP oyun yazılımları ile sınırları ortadan kaldırın. Kalite ve güvenin tek adresi.</p>
         
-        <!-- Ortadaki Satış Kartları -->
-        <div class="products-grid" id="products">
-            
-            <!-- 1. Kart: Discord Bot (MAVİ TEMA) -->
-            <div class="product-card dc-card">
-                <div class="card-glow dc-glow"></div>
-                <div class="icon-wrapper dc-icon">
-                    <i class="fa-brands fa-discord"></i>
-                </div>
-                <h3>Discord Bot Alımı</h3>
-                <p>Sunucunuza özel kodlanmış, 7/24 kesintisiz aktif moderasyon, kayıt, ekonomi veya eğlence botları.</p>
-                <ul class="features">
-                    <li><i class="fa-solid fa-check" style="color: #5865F2;"></i> Tamamen Özel Komutlar</li>
-                    <li><i class="fa-solid fa-check" style="color: #5865F2;"></i> Yüksek Performanslı VDS</li>
-                    <li><i class="fa-solid fa-check" style="color: #5865F2;"></i> Yönetim Paneli</li>
-                </ul>
-                <!-- Butona basıldığında fiyat alanını açar ve mavi renk gönderir -->
-                <button class="buy-btn dc-btn" onclick="fiyatGoster('Discord Bot', '#5865F2')">
-                    <i class="fa-solid fa-cart-shopping"></i> Satın Al
-                </button>
-            </div>
-
-            <!-- 2. Kart: Zula Hile (KIRMIZI TEMA) -->
-            <div class="product-card zula-card">
-                <div class="card-glow zula-glow"></div>
-                <div class="icon-wrapper zula-icon">
-                    <i class="fa-solid fa-crosshairs"></i>
-                </div>
-                <h3>Zula Hile Alımı</h3>
-                <p>Undetected (ban korumalı) güncel VIP Hack. Oyunda üstünlüğü tamamen ele geçirin.</p>
-                <ul class="features">
-                    <li><i class="fa-solid fa-check"></i> Aimbot & ESP (Wallhack)</li>
-                    <li><i class="fa-solid fa-check"></i> Otomatik Güncelleme</li>
-                    <li><i class="fa-solid fa-check"></i> HWID Spoofer Dahil</li>
-                </ul>
-                <!-- Butona basıldığında fiyat alanını açar ve kırmızı renk gönderir -->
-                <button class="buy-btn zula-btn" onclick="fiyatGoster('Zula VIP Hack', '#ff3333')">
-                    <i class="fa-solid fa-cart-shopping"></i> Satın Al
-                </button>
-            </div>
-
-        </div>
-
-        <!-- YENİ: Tıklayınca Aynı Sayfada Açılan Fiyatlandırma Alanı -->
-        <div id="pricing-area" class="pricing-container">
-            <div class="pricing-content">
-                <h2 id="pricing-title">Ürün Fiyatlandırması</h2>
-                <div class="pricing-details">
-                    <p class="price-line">Haftalık Paket <span class="dots"></span> <span class="price-tag">250 TL</span></p>
-                    <p class="price-line">Aylık Paket <span class="dots"></span> <span class="price-tag">900 TL</span></p>
-                </div>
-                <p class="pricing-desc">Satın alım işlemini tamamlamak ve anında teslim almak için Discord sunucumuza katılıp destek talebi oluşturabilirsiniz.</p>
-                
-                <a href="https://discord.gg/6Dj4ArjyJ" target="_blank" class="buy-btn final-buy-btn">
-                    <i class="fa-brands fa-discord"></i> Discord'dan Satın Al
-                </a>
-            </div>
-        </div>
-
+        <a href="urunler.html" class="buy-btn" style="width: auto; padding: 15px 40px; display: inline-flex; margin-top: 2rem; background-color: var(--border-color); border: 1px solid var(--accent-red);">
+            Ürünlerimizi İncele <i class="fa-solid fa-arrow-right" style="margin-left: 10px;"></i>
+        </a>
     </main>
-
-    <script>
-        function fiyatGoster(urunAdi, renk) {
-            const pricingArea = document.getElementById('pricing-area');
-            const pricingTitle = document.getElementById('pricing-title');
-            
-            // Hangi butona tıklandıysa onun ismini ve rengini başlığa yazar
-            pricingTitle.innerHTML = `<span style="color: ${renk};">${urunAdi}</span> Seçtiniz`;
-            
-            // Alanı görünür yap
-            pricingArea.classList.add('visible');
-            
-            // Ekranı yavaşça o alana kaydır
-            setTimeout(() => {
-                pricingArea.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 100);
-        }
-    </script>
 </body>
 </html>
