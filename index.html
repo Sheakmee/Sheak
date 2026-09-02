@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-    <div class="background-glow"></div>
+<body class="home-theme"> <!-- Ana sayfaya özel renk teması için class eklendi -->
+    <div class="home-background-glow"></div>
 
     <!-- Üst Menü -->
     <nav class="navbar">
@@ -17,16 +17,67 @@
             Sheak<span class="logo-highlight">Ware</span>
         </div>
         <ul class="nav-links">
-            <li><a href="index.html" style="color: var(--accent-red);">Ana Sayfa</a></li>
+            <li><a href="index.html" class="active-link">Ana Sayfa</a></li>
             <li><a href="ürünler.html">Ürünler</a></li>
             <li><a href="https://discord.gg/6Dj4ArjyJ" target="_blank">İletişim</a></li>
         </ul>
     </nav>
 
-    <!-- Ana Sayfa Karşılama Alanı -->
+    <!-- Ana Karşılama (Hero) -->
     <main class="hero">
-        <h1>SheakWare'a <span class="highlight">Hoş Geldiniz</span></h1>
-        <p>Dijital dünyadaki gücünüzü artırın. İhtiyacınıza özel gelişmiş Discord botları ve yenilmez VIP oyun yazılımları ile sınırları ortadan kaldırın. Kalite ve güvenin tek adresi.</p>
+        <h1>Dijital Dünyada <span class="highlight">Gücünüze Güç Katın</span></h1>
+        <p>İhtiyacınıza özel, üst düzey güvenlikli Discord botları ve Undetected oyun yazılımları ile rakiplerinizin her zaman bir adım önünde olun. Sınırları biz çizmiyoruz, siz aşıyorsunuz.</p>
     </main>
+
+    <!-- Bilgi Bölümü 1: Neden Biz? -->
+    <section class="info-section">
+        <h2>Neden <span class="highlight">SheakWare?</span></h2>
+        <div class="features-grid">
+            
+            <div class="feature-box">
+                <i class="fa-solid fa-shield-halved feature-icon"></i>
+                <h3>Üst Düzey Güvenlik</h3>
+                <p>Tüm yazılımlarımız Anti-Ban özellikli olup, Undetected (fark edilmez) altyapı ile kodlanmaktadır. Hesabınız her zaman güvende.</p>
+            </div>
+
+            <div class="feature-box">
+                <i class="fa-solid fa-bolt feature-icon" style="color: #ff007f;"></i>
+                <h3>Yüksek Performans</h3>
+                <p>Discord botlarımız son teknoloji VDS sunucularda barınır. %99.9 Uptime garantisi ile sunucunuz asla yarı yolda kalmaz.</p>
+            </div>
+
+            <div class="feature-box">
+                <i class="fa-solid fa-headset feature-icon" style="color: #b700ff;"></i>
+                <h3>7/24 Aktif Destek</h3>
+                <p>Satın alım öncesi ve sonrası, alanında uzman ekibimiz Discord üzerinden size anında destek sağlamak için her an hazırdır.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Bilgi Bölümü 2: İstatistikler -->
+    <section class="info-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3 class="stat-number">500+</h3>
+                <p>Mutlu Müşteri</p>
+            </div>
+            <div class="stat-item">
+                <h3 class="stat-number">30+</h3>
+                <p>Özel Proje</p>
+            </div>
+            <div class="stat-item">
+                <h3 class="stat-number">%100</h3>
+                <p>Güvenilirlik</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 SheakWare. Tüm Hakları Saklıdır.</p>
+        <p style="font-size: 0.9rem; margin-top: 10px; color: #888;">Bu site sadece dijital yazılım ve lisans satışı yapmaktadır.</p>
+    </footer>
+
 </body>
 </html>
