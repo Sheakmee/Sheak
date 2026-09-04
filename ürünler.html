@@ -177,30 +177,3 @@
                 alert("Python sunucusuna bağlanılamadı! app.py'nin açık olduğundan emin ol.");
             });
         }
-    </script>
-        // Basit kart numarası boşluk bırakma scripti
-        document.getElementById('cc-number').addEventListener('input', function (e) {
-            e.target.value = e.target.value.replace(/[^\d]/g, '').replace(/(.{4})/g, '$1 ').trim();
-        });
-
-        document.getElementById('cc-exp').addEventListener('input', function (e) {
-            e.target.value = e.target.value.replace(/[^\d]/g, '').replace(/(.{2})/, '$1/').trim();
-        });
-
-        function odemeTamamla() {
-            const name = document.getElementById('cc-name').value.trim();
-            const number = document.getElementById('cc-number').value.trim();
-            const exp = document.getElementById('cc-exp').value.trim();
-            const cvv = document.getElementById('cc-cvv').value.trim();
-
-            if (!name || !number || !exp || !cvv) {
-                alert("Lütfen tüm kart bilgilerini eksiksiz doldurunuz.");
-                return;
-            }
-
-            // Backend API entegrasyonu buraya gelecek.
-            alert("Ödeme işleniyor... (Bu aşamada kart bilgileri backend sunucunuza iletilmeli ve doğrulama sonrası teslimat linki açılmalıdır.)");
-        }
-    </script>
-</body>
-</html>
