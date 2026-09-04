@@ -36,13 +36,13 @@
                     <i class="fa-brands fa-discord"></i>
                 </div>
                 <h3>Discord Bot Alımı</h3>
-                <p>Sunucunuza özel kodlanmış, 7/24 kesintisiz aktif moderasyon, kayıt, ekonomi veya eğlence botları.</p>
+                <p>Sunucunuza özel kodlanmış, 7/24 kesintisiz aktif moderasyon, kayıt ve eğlence botları.</p>
                 <ul class="features">
                     <li><i class="fa-solid fa-check" style="color: #5865F2;"></i> Tamamen Özel Komutlar</li>
                     <li><i class="fa-solid fa-check" style="color: #5865F2;"></i> Yüksek Performanslı VDS</li>
                     <li><i class="fa-solid fa-check" style="color: #5865F2;"></i> Yönetim Paneli</li>
                 </ul>
-                <button class="buy-btn dc-btn" onclick="fiyatGoster('Discord Bot', '#5865F2')">
+                <button class="buy-btn dc-btn" onclick="fiyatGoster('Discord Bot', '#5865F2', 'dc_bot')">
                     <i class="fa-solid fa-cart-shopping"></i> Satın Al
                 </button>
             </div>
@@ -60,52 +60,63 @@
                     <li><i class="fa-solid fa-check"></i> Otomatik Güncelleme</li>
                     <li><i class="fa-solid fa-check"></i> HWID Spoofer Dahil</li>
                 </ul>
-                <button class="buy-btn zula-btn" onclick="fiyatGoster('Zula VIP Hack', '#ff3333')">
+                <button class="buy-btn zula-btn" onclick="fiyatGoster('Zula VIP Hack', '#ff3333', 'zula_hack')">
                     <i class="fa-solid fa-cart-shopping"></i> Satın Al
                 </button>
             </div>
 
         </div>
 
-        <!-- Tıklayınca Açılan Profesyonel Ödeme / Fiyatlandırma Alanı -->
+        <!-- Tıklayınca Açılan Profesyonel Ödeme Alanı -->
         <div id="pricing-area" class="pricing-container">
             <div class="pricing-content">
                 <h2 id="pricing-title">Ürün Fiyatlandırması</h2>
                 
-                <!-- Profesyonel Fiyat Satırları (Sıkı Mesafe) -->
-                <div class="pricing-details">
-                    <div class="price-row">
+                <!-- Paket Seçimi (Dar Mesafe / Modern Font) -->
+                <div class="package-selector">
+                    <label class="package-option active" id="opt-haftalik" onclick="paketSec('haftalik', 250)">
+                        <input type="radio" name="package" value="haftalik" checked hidden>
                         <span class="package-name">Haftalık Paket</span>
                         <span class="dots"></span>
                         <span class="price-tag">250 TL</span>
-                    </div>
-                    <div class="price-row">
+                    </label>
+
+                    <label class="package-option" id="opt-aylik" onclick="paketSec('aylik', 900)">
+                        <input type="radio" name="package" value="aylik" hidden>
                         <span class="package-name">Aylık Paket</span>
                         <span class="dots"></span>
                         <span class="price-tag">900 TL</span>
-                    </div>
+                    </label>
                 </div>
 
-                <!-- Kişi Bilgileri (İsim Soyisim Girişi) -->
+                <!-- Ad Soyad Girişi -->
                 <div class="checkout-form">
                     <label for="buyer-name">Ad Soyad</label>
                     <input type="text" id="buyer-name" placeholder="Adınızı ve Soyadınızı giriniz..." autocomplete="name">
                 </div>
 
-                <!-- Ödeme Seçenekleri Altta -->
+                <!-- Ödeme Yöntemi Seçimi -->
                 <div class="payment-options">
-                    <p class="payment-title"><i class="fa-solid fa-wallet"></i> Ödeme Seçenekleri</p>
+                    <p class="payment-title"><i class="fa-solid fa-credit-card"></i> Ödeme Yöntemi Seçiniz</p>
                     <div class="payment-methods">
-                        <div class="payment-badge"><i class="fa-solid fa-building-columns"></i> IBAN / Havale</div>
-                        <div class="payment-badge"><i class="fa-solid fa-wallet"></i> Papara</div>
-                        <div class="payment-badge"><i class="fa-solid fa-credit-card"></i> Kredi Kartı</div>
+                        <label class="payment-badge active-method" id="pay-card" onclick="yontemSec('card')">
+                            <i class="fa-solid fa-credit-card"></i> Kredi / Banka Kartı
+                        </label>
+                        <label class="payment-badge" id="pay-papara" onclick="yontemSec('papara')">
+                            <i class="fa-solid fa-wallet"></i> Papara
+                        </label>
+                        <label class="payment-badge" id="pay-iban" onclick="yontemSec('iban')">
+                            <i class="fa-solid fa-building-columns"></i> IBAN / Havale
+                        </label>
                     </div>
                 </div>
 
-                <p class="pricing-desc">Siparişi tamamlamak ve ödeme bildiriminde bulunmak için aşağıdaki butona tıklayarak Discord destek talebi açabilirsiniz.</p>
-                
-                <button class="buy-btn final-buy-btn" onclick="satinAlTikla()">
-                    <i class="fa-solid fa-check-circle"></i> Satın Al
+                <!-- Genel Bilgi Notu -->
+                <p class="pricing-desc" id="payment-note">Ödemeyi tamamlamak için aşağıdaki butona bastığınızda güvenli ödeme sayfasına veya destek kanalına yönlendirileceksiniz.</p>
+
+                <!-- Satın Al Butonu -->
+                <button class="buy-btn final-buy-btn" onclick="satinAlIslemi()">
+                    <i class="fa-solid fa-shield-check"></i> Satın Al (<span id="total-price">250 TL</span>)
                 </button>
             </div>
         </div>
@@ -113,7 +124,20 @@
     </main>
 
     <script>
-        function fiyatGoster(urunAdi, renk) {
+        // ÖDEME LİNKLERİ (Kendi Shopier/PayTR/Discord linklerinizle değiştirebilirsiniz)
+        const ODEME_LINKLERI = {
+            card: "https://www.shopier.com/ShowProductCD/products.php?id=ORNEK_SHOP_ID",
+            papara: "https://discord.gg/6Dj4ArjyJ",
+            iban: "https://discord.gg/6Dj4ArjyJ"
+        };
+
+        let secilenUrun = 'zula_hack';
+        let secilenPaket = 'haftalik';
+        let guncelFiyat = 250;
+        let secilenYontem = 'card';
+
+        function fiyatGoster(urunAdi, renk, urunKodu) {
+            secilenUrun = urunKodu;
             const pricingArea = document.getElementById('pricing-area');
             const pricingTitle = document.getElementById('pricing-title');
             
@@ -125,14 +149,45 @@
             }, 100);
         }
 
-        function satinAlTikla() {
+        function paketSec(paket, fiyat) {
+            secilenPaket = paket;
+            guncelFiyat = fiyat;
+            document.getElementById('opt-haftalik').classList.remove('active');
+            document.getElementById('opt-aylik').classList.remove('active');
+            
+            document.getElementById(`opt-${paket}`).classList.add('active');
+            document.getElementById('total-price').innerText = `${fiyat} TL`;
+        }
+
+        function yontemSec(yontem) {
+            secilenYontem = yontem;
+            document.getElementById('pay-card').classList.remove('active-method');
+            document.getElementById('pay-papara').classList.remove('active-method');
+            document.getElementById('pay-iban').classList.remove('active-method');
+            
+            document.getElementById(`pay-${yontem}`).classList.add('active-method');
+
+            const note = document.getElementById('payment-note');
+            if(yontem === 'card') {
+                note.innerText = "Kredi/Banka Kartınız ile 256-Bit SSL korumalı sanal POS ekranında güvenle ödeyebilirsiniz.";
+            } else if(yontem === 'papara') {
+                note.innerText = "Papara ile ödeme yapmak ve Papara numaramızı almak için Discord destek kanalımıza yönlendirileceksiniz.";
+            } else {
+                note.innerText = "IBAN / Havale ile ödeme yapmak için banka hesap bilgilerimiz Discord sunucumuzda paylaşılacaktır.";
+            }
+        }
+
+        function satinAlIslemi() {
             const isim = document.getElementById('buyer-name').value.trim();
             if (!isim) {
-                alert('Lütfen devam etmeden önce adınızı ve soyadınızı giriniz!');
+                alert('Lütfen devam etmek için Adınızı ve Soyadınızı giriniz!');
                 document.getElementById('buyer-name').focus();
                 return;
             }
-            window.open('https://discord.gg/6Dj4ArjyJ', '_blank');
+
+            // Seçilen ödeme yöntemine göre yönlendirme
+            const hedefUrl = ODEME_LINKLERI[secilenYontem];
+            window.location.href = hedefUrl;
         }
     </script>
 </body>
