@@ -271,3 +271,190 @@ footer {
     .price-line { font-size: 1.3rem; }
     .price-tag { font-size: 1.5rem; }
 }
+/* --- SIKI VE PROFESYONEL ÖDEME ALANI --- */
+.pricing-container {
+    width: 100%;
+    max-width: 750px;
+    margin: 2.5rem auto 0;
+    background: rgba(12, 14, 28, 0.95);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    border-radius: 16px;
+    padding: 2rem 2.5rem;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(15px);
+    display: none;
+    opacity: 0;
+    transform: translateY(25px);
+}
+
+.pricing-container.visible {
+    display: block;
+    animation: slideUpFade 0.5s ease forwards;
+}
+
+.pricing-content h2 {
+    font-size: 1.7rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 0.6rem;
+}
+
+/* Paket Seçici (Dar Mesafe ve Kaliteli Font) */
+.package-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Mesafe azaltıldı */
+    margin-bottom: 1.2rem;
+}
+
+.package-option {
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.package-option:hover {
+    border-color: rgba(0, 229, 255, 0.4);
+    background: rgba(0, 229, 255, 0.05);
+}
+
+.package-option.active {
+    border-color: #00e5ff;
+    background: rgba(0, 229, 255, 0.12);
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.2);
+}
+
+.package-name {
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 1.05rem;
+    letter-spacing: 0.3px;
+}
+
+.dots {
+    flex-grow: 1;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+    margin: 0 12px;
+}
+
+.price-tag {
+    font-weight: 800;
+    color: #00e5ff;
+    font-size: 1.2rem;
+    text-shadow: 0 0 8px rgba(0, 229, 255, 0.4);
+}
+
+/* Form Bilgisi */
+.checkout-form {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.checkout-form label {
+    display: block;
+    font-size: 0.85rem;
+    color: #a3a3b5;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.checkout-form input {
+    width: 100%;
+    padding: 11px 14px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.checkout-form input:focus {
+    border-color: #00e5ff;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+}
+
+/* Ödeme Yöntemleri Butonları */
+.payment-options {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.payment-title {
+    font-size: 0.85rem;
+    color: #a3a3b5;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.payment-methods {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.payment-badge {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #d1d1e0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.payment-badge:hover {
+    border-color: rgba(0, 229, 255, 0.4);
+    color: #fff;
+}
+
+.payment-badge.active-method {
+    border-color: #00e5ff;
+    background: rgba(0, 229, 255, 0.15);
+    color: #00e5ff;
+}
+
+.pricing-desc {
+    color: #8f8fa3;
+    font-size: 0.85rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.4;
+    text-align: left;
+}
+
+/* Ana Satın Al Butonu */
+.final-buy-btn {
+    display: inline-flex;
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(135deg, #00e5ff, #0088ff);
+    color: #050510;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 800;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.final-buy-btn:hover {
+    background: linear-gradient(135deg, #0088ff, #00e5ff);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+    color: #fff;
+    transform: translateY(-2px);
+}
