@@ -458,3 +458,79 @@ footer {
     color: #fff;
     transform: translateY(-2px);
 }
+/* --- KREDİ KARTI FORM TASARIMI --- */
+.credit-card-form {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.full-width { width: 100%; }
+.half-width { width: 50%; }
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    color: #a3a3b5;
+    margin-bottom: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 14px;
+    background: rgba(15, 15, 25, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    font-family: monospace;
+}
+
+.form-group input:focus {
+    border-color: #00e5ff;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+}
+
+.input-with-icon {
+    position: relative;
+}
+.input-with-icon i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: #fff;
+    opacity: 0.5;
+}
+.input-with-icon input {
+    padding-right: 45px;
+}
+
+.secure-badge {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #00e5ff;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
