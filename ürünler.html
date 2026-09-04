@@ -146,7 +146,38 @@
             document.getElementById(`opt-${paket}`).classList.add('active');
             document.getElementById('total-price-btn').innerText = `${fiyat} TL`;
         }
+// --- FETCH KODUNU BURAYA, ÖDEME BUTONUNA BASILDIĞINDA ÇALIŞACAK FONKSİYONA YAPIŞTIRIYORUZ ---
+        function odemeTamamla() {
+            const name = document.getElementById('cc-name').value.trim();
+            
+            if (!name) {
+                alert("Lütfen adınızı ve soyadınızı giriniz.");
+                return;
+            }
 
+            // Python Flask sunucumuzla (localhost:5000) haberleşen kısım burası:
+            fetch('http://localhost:5000/odeme-baslat', { 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ fiyat: guncelFiyat, ad: name })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    console.log("Sunucudan Token Alındı:", data.iframe_token);
+                    alert("Ödeme isteği sunucuya başarıyla iletildi! Token: " + data.iframe_token);
+                } else {
+                    alert("Bir hata oluştu.");
+                }
+            })
+            .catch(error => {
+                console.error("Bağlantı hatası:", error);
+                alert("Python sunucusuna bağlanılamadı! app.py'nin açık olduğundan emin ol.");
+            });
+        }
+    </script>
         // Basit kart numarası boşluk bırakma scripti
         document.getElementById('cc-number').addEventListener('input', function (e) {
             e.target.value = e.target.value.replace(/[^\d]/g, '').replace(/(.{4})/g, '$1 ').trim();
