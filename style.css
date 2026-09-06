@@ -534,3 +534,117 @@ footer {
     margin-bottom: 15px;
     font-weight: 600;
 }
+/* --- Müşteri Yorumları Bölümü Stilleri --- */
+.testimonials-section {
+    padding: 60px 0;
+    background-color: #0d1117;
+    color: #ffffff;
+    overflow: hidden;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.testimonials-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.highlight-red {
+    color: #ef4444;
+}
+
+.testimonials-header p {
+    color: #9ca3af;
+    margin-bottom: 40px;
+    font-size: 1rem;
+}
+
+/* Kayan Yazı Konteyneri */
+.marquee-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+}
+
+.marquee-content {
+    display: flex;
+    gap: 20px;
+    padding: 0 10px;
+}
+
+/* Animasyonlar */
+.track-left {
+    animation: scroll-left 35s linear infinite;
+}
+
+.track-right {
+    animation: scroll-right 35s linear infinite;
+}
+
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+/* Kart Tasarımı */
+.testimonial-card {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 20px;
+    width: 320px;
+    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.user-info span {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.testimonial-card p {
+    color: #8b949e;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Avatar Renkleri */
+.avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+}
+.blue-avatar { background-color: #3b82f6; }
+.purple-avatar { background-color: #8b5cf6; }
+.grey-avatar { background-color: #4b5563; }
+.dark-avatar { background-color: #1f2937; }
