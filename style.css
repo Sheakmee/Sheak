@@ -648,3 +648,34 @@ footer {
 .purple-avatar { background-color: #8b5cf6; }
 .grey-avatar { background-color: #4b5563; }
 .dark-avatar { background-color: #1f2937; }
+/* --- Özel Yazılım Kartı (Mor / Neon Tema) --- */
+.custom-card {
+    border: 1px solid rgba(168, 85, 247, 0.35);
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.1);
+}
+
+.custom-card:hover {
+    border-color: rgba(168, 85, 247, 0.7);
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.25);
+}
+
+.custom-glow {
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+.custom-icon {
+    color: #a855f7;
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.custom-btn {
+    border: 1px solid #a855f7;
+    color: #ffffff;
+    background: transparent;
+}
+
+.custom-btn:hover {
+    background: #a855f7;
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+}
